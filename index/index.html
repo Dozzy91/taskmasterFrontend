@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html style="scroll-behavior: smooth"; lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Task Master</title>
+    <script src="../home.js" defer></script> 
+</head>
+<body>
+    <header class="header" id="header">
+        <nav class="navbar">
+            <img height="50px" width="70px" title="pharmacy logo" alt="logo" src="https://i.ibb.co/d5VCyCJ/abstract-medical-logo-cut.png">
+            <div id="links">
+                <button class="btn" onclick="home()">Home</button>
+                <button class="btn2" onclick="goTo(`/index/index.html`)" href="">Create Task</button>
+                <button class="btn" onclick="goTo(`/index/task.html`), getTasks()">Task</button>
+                <div class="loginSignup">
+                    <button onclick="logout()" id="login" link="">Logout</button>
+                </div>
+            </div>
+            <i class='bx bx-menu' id="menu"></i>
+        </nav>
+    </header>
+   
+    <div class="content">
+        <div class="form_container">
+            <span class="createTask">Create Task</span>
+                <form class="form" id="forms_create_task">
+                    <!-- <label for="task">Task *</label> -->
+                    <input class="task" type="text" id="task" name="task" placeholder="Task">
+                    <textarea name="desc" placeholder="Description" id="desc" class="desc"></textarea>
+                    <div id="select">
+                        <label class="priority_label" for="priority">Priority:</label>
+                        <select id="priority" name="priority">
+                          <option value="high">High</option>
+                          <option value="medium">Medium</option>
+                          <option value="low">Low</option>
+                        </select>
+                      </div>
+                    <input class="datetime" type="datetime-local" id="datetime" name="datetime" placeholder="Due Date">
+                </form>
+                <div id="buttons">
+                    <a class="create" onclick="createTask()">Create</a>
+                </div>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <div class="footer_container">
+            <div class="footer_logo">
+                <img height="150px" width="170px" title="pharmacy logo" alt="logo" src="https://i.ibb.co/d5VCyCJ/abstract-medical-logo-cut.png">
+                <p>Powered by Oak Pharmaceuticals &copy 2024</p>
+            </div>
+            <div class="products">
+                <p class="heading">Products</p>
+                <p class="details">Lorem dolor</p>
+                <p class="details">Lorem dolor</p>
+                <p class="details">Lorem dolor</p>
+                <p class="details">Lorem dolor</p>
+                <p class="details">Lorem dolor</p>
+                <p class="details">Lorem dolor</p>
+                <p class="details">Lorem dolor</p>
+            </div>
+            <div class="helpcenter">
+                <p class="heading">Help Center</p>
+                <p class="details">Ipsum repreh</p>
+                <p class="details">Ipsum repreh</p>
+                <p class="details">Ipsum repreh</p>
+                <p class="details">Ipsum repreh</p>
+                <p class="details">Ipsum repreh</p>
+                <p class="details">Ipsum repreh</p>
+                <p class="details">Ipsum repreh</p>
+            </div>
+            <div class="research">
+                <p class="heading">Research</p>
+                <p class="details">exercitationem</p>
+                <p class="details">exercitationem</p>
+                <p class="details">exercitationem</p>
+                <p class="details">exercitationem</p>
+            </div>
+            <div class="contact">
+                <p class="heading">Contact</p>
+                <div class='location'>
+                <i class='bx bx-location-plus' style='color:#ffffff'></i>
+                <span>4/6 Ring Road off Jeninks bustop, Market Road Layout, Owerri, Imo State.</span>
+                </div>
+                <div class="location">
+                <i class='bx bxs-phone' style='color:#ffffff'></i>
+                <span id="phone">+234 094377383 <br class="break"> +234 098077383</span>
+                </div>
+                <div class="social">
+                <i class='bx bxl-twitter'></i>
+                <i class='bx bxl-instagram'></i>
+                <i class='bx bxl-facebook'></i>
+                <i class='bx bxl-tiktok'></i>
+                </div>
+            </div>
+        </div>
+  </footer>
+</body>
+</html>

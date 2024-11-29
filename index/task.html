@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html style="scroll-behavior: smooth"; lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Task Master</title>
+    <script src="../home.js" defer></script> 
+</head>
+<body>
+    <header class="header" id="header">
+        <nav class="navbar">
+            <img height="50px" width="70px" title="pharmacy logo" alt="logo" src="https://i.ibb.co/d5VCyCJ/abstract-medical-logo-cut.png">
+            <div id="links">
+                <button class="btn" onclick="home()">Home</button>
+                <button class="btn2" onclick="goTo(`/index/index.html`)">Create Task</button>
+                <button class="btn" onclick="goTo(`/index/task.html`)">Task</button>
+                <div class="loginSignup">
+                    <button onclick="logout()" id="login" link="">Logout</button>
+                </div>
+            </div>
+            <i class='bx bx-menu' id="menu"></i>
+        </nav>
+    </header>
+
+    <div class="content">
+        <div class="settings">
+            <div class="search">
+                Search
+                <form class="search_task" id="search_task">
+                    <!-- <label for="task">Task *</label> -->
+                    <input class="task_search" type="text" id="task_search" name="keyword" placeholder="Enter key word">
+                </form>
+                <div id="buttons">
+                    <a class="update" onclick="searchTask()">Go</a>
+                </div>
+            </div>
+            <div class="filter_by_priority">
+                Filter by priority
+                <div id="select_priority_filter">
+                    <form class="filter_priority" id="filter_priority">
+                        <label class="priority_label_update" for="priority">Priority:</label>
+                        <select id="priority_update" name="priority">
+                            <option value="high">High</option>
+                            <option value="medium">Medium</option>
+                            <option value="low">Low</option>
+                        </select>
+                    </form>
+                  </div>
+                <div id="buttons">
+                    <a class="update" onclick="filterByPriority()">Go</a>
+                </div>
+            </div>
+            <div class="filter_by_date">
+                Filter by date
+                <div id="select_date_filter">
+                    <form class="filter_date" id="filter_date">
+                        <label class="date_label_update" for="date">Enter Date:</label>
+                        <input class="filter_datetime" type="datetime-local" id="filter_datetime" name="datetime" placeholder="Due Date">
+                    </form>
+                  </div>
+                <div id="buttons">
+                    <a class="update" onclick="filterByDate()">Go</a>
+                </div>
+            </div>
+            <div class="orderByPriority" onclick="orderByPriority()">Order by Pirority</div>
+            <div class="orderByDate" onclick="orderByDate()">Order by Date</div>
+        </div>
+        <div class="settingss">
+            <div class="searchh">
+                Delete
+                <form class="delete_task" id="delete_task">
+                    <!-- <label for="task">Task *</label> -->
+                    <input class="task_delete" type="number" id="task_delete" name="id" placeholder="Enter task Id">
+                </form>
+                <div id="buttons">
+                    <a class="update" onclick="deleteTask()">Go</a>
+                </div>
+            </div>
+            <div class="update_taskk">
+                Update
+                <form class="update_task" id="update_task">
+                    <input class="task_update" type="number" id="task_update" name="id" placeholder="Enter task Id">
+                    <input class="task_update" type="text" id="task" name="task" placeholder="Task">
+                    <textarea name="desc" placeholder="Description" id="descri" class="descri"></textarea>
+                    <div id="select">
+                        <label class="priority_labell" for="priority">Priority:</label>
+                        <select id="priorityy" name="priority">
+                            <option value="high">High</option>
+                            <option value="medium">Medium</option>
+                            <option value="low">Low</option>
+                        </select>
+                    <div id="select">
+                        <label class="completed_labell" for="completed">Completed:</label>
+                        <select id="completed" name="completed">
+                            <option value="true">True</option>
+                            <option value="false">False</option>
+                        </select>
+                    </div>
+                    <input class="datetimee" type="datetime-local" id="datetime" name="datetime" placeholder="Due Date">
+                </form>
+                <div id="buttons">
+                    <a class="update" onclick="updateTask()">Go</a>
+                </div>
+            </div>
+            
+            <!-- <div id="buttons">
+                <a class="update" onclick="getTasks()">Click to Get Tasks</a>
+            </div> -->
+        </div>
+        <div class="get_tasks" onclick="getTasks()">Click to Get Tasks</div>
+
+        </div>
+        <div id="table">
+            <h2 onclick="getTasks()">Tasks</h2>
+            <div class="action_modal" id="action_modal">
+                <div class="modal_content">
+                    <i class='bx bx-pencil'id='pencil'>
+                        <div id="edit_modal">
+                            <form class="form" id="forms_update_task">
+                                <!-- <label for="task">Task *</label> -->
+                                <input class="task_update" type="text" id="task_update" name="task" placeholder="Task">
+                                <textarea name="desc" placeholder="Description" id="desc_update" class="desc_update"></textarea>
+                                <div id="select_priority_update">
+                                    <label class="priority_label_update" for="priority">Priority:</label>
+                                    <select id="priority_update" name="priority">
+                                    <option value="high">High</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="low">Low</option>
+                                    </select>
+                                </div>
+                                <div id="select_completed_update">
+                                    <label class="completed_label" for="completed">Completed:</label>
+                                    <select id="completed" name="completed">
+                                    <option value="true">True</option>
+                                    <option value="false">False</option>
+                                    </select>
+                                </div>
+                                <input class="datetime_update" type="datetime-local" id="datetime_update" name="datetime" placeholder="Due Date">
+                            </form>
+                            <div id="buttons">
+                                <a class="update" onclick="updateTask()">Update</a>
+                            </div>
+                        </div>
+                    </i>
+                    <i class='bx bx-trash'id='trash'></i>
+                </div>
+            </div>
+            <!-- 
+                <div class="filter_modal">
+                    <div class="modal_content">
+                        <span>Filter by date</span>
+                        <span>Filter by priority</span>
+                    </div>
+                    <div class="date_content">
+                        <input class="datetime_modal" type="datetime-local" id="datetime_modal" name="datetime" placeholder="Date">
+                        <button onclick="filterByDate()">Go</button>
+                    </div>
+                    <div class="priority_content">
+                        <span onclick="filterByPriority('high')">High</span>
+                        <span onclick="filterByPriority('medium')">Medium</span>
+                        <span onclick="filterByPriority('low')">Low</span>
+                    </div>
+                </div>
+
+                <div class="order_modal">
+                    <div class="modal_content">
+                        <span onclick="orderByDate()">Order by date</span>
+                        <span onclick="orderByPriority()">Order by priority</span>
+                    </div>
+                </div>
+            -->
+            <table id="todoTable">
+                <thead class="head">
+                    <tr>
+                        <th class="sn">SN</th>
+                        <th class="sn">ID</th>
+                        <th class="task">Task</th>
+                        <th class="desc">Description</th>
+                        <th class="desc">Priority</th>
+                        <th class="desc">Completed</th>
+                        <th class="created">Created At</th>
+                        <th class="due">Due Date</th>
+                        <th class="action">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+</div>
+
+    <footer class="footer">
+        <div class="footer_container">
+            <div class="footer_logo">
+                <img height="150px" width="170px" title="pharmacy logo" alt="logo" src="https://i.ibb.co/d5VCyCJ/abstract-medical-logo-cut.png">
+                <p>Powered by TaskMaster &copy 2024</p>
+            </div>
+            <div class="products">
+                <p class="heading">Products</p>
+                <p class="details">Lorem dolor</p>
+                <p class="details">Lorem dolor</p>
+                <p class="details">Lorem dolor</p>
+                <p class="details">Lorem dolor</p>
+                <p class="details">Lorem dolor</p>
+                <p class="details">Lorem dolor</p>
+                <p class="details">Lorem dolor</p>
+            </div>
+            <div class="helpcenter">
+                <p class="heading">Help Center</p>
+                <p class="details">Ipsum repreh</p>
+                <p class="details">Ipsum repreh</p>
+                <p class="details">Ipsum repreh</p>
+                <p class="details">Ipsum repreh</p>
+                <p class="details">Ipsum repreh</p>
+                <p class="details">Ipsum repreh</p>
+                <p class="details">Ipsum repreh</p>
+            </div>
+            <div class="research">
+                <p class="heading">Research</p>
+                <p class="details">exercitationem</p>
+                <p class="details">exercitationem</p>
+                <p class="details">exercitationem</p>
+                <p class="details">exercitationem</p>
+            </div>
+            <div class="contact">
+                <p class="heading">Contact</p>
+                <div class='location'>
+                <i class='bx bx-location-plus' style='color:#ffffff'></i>
+                <span>4/6 Ring Road off Jeninks bustop, Market Road Layout, Owerri, Imo State.</span>
+                </div>
+                <div class="location">
+                <i class='bx bxs-phone' style='color:#ffffff'></i>
+                <span id="phone">+234 094377383 <br class="break"> +234 098077383</span>
+                </div>
+                <div class="social">
+                <i class='bx bxl-twitter'></i>
+                <i class='bx bxl-instagram'></i>
+                <i class='bx bxl-facebook'></i>
+                <i class='bx bxl-tiktok'></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
