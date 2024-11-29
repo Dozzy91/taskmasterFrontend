@@ -590,11 +590,11 @@ body {
     width:110px;
 }
 
-#todoTable td:nth-child(1), td:nth-child(8) {
+#todoTable td:nth-child(1), td:nth-child(9) {
     text-align: center;
 }
 #todoTable td:nth-child(3) {
-    width: 110px
+    width: 190px
 }
 #todoTable td:nth-child(2) {
     width: 10px

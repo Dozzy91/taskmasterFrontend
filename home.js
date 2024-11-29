@@ -40,7 +40,7 @@ function scrol() {
 };
 
 function home() {
-  window.location.href = `${frontend_host}/home/home.html`;
+  window.location.href = `${frontend_host}/index.html`;
 }
 
 function goTo(route) {
@@ -50,14 +50,12 @@ function goTo(route) {
     console.log(main_route)
 
     const token = sessionStorage.getItem('token');
-    
-    console.log(token)
 
     if(token && main_route){
       window.location.href = main_route ;
     }else {
       console.log("Please log in to access page");
-      window.location.href = `${frontend_host}/home/home.html`;
+      window.location.href = `${frontend_host}/index.html`;
     }
   } catch (error) {
     console.log("An error occured: ", error)
@@ -145,7 +143,7 @@ async function login() {
       sessionStorage.setItem('token', result.token);
       sessionStorage.setItem('user_id', result.user_id);
 
-      window.location.href = `${frontend_host}/index/index.html` // connect this much later
+      window.location.href = `${frontend_host}/create.html` // connect this much later
 
       // clearing the log in details after an hour
       setTimeout(() => {
@@ -177,7 +175,7 @@ async function logout() {
       console.log('Logged out Successfully');
       sessionStorage.removeItem('token');
       sessionStorage.removeItem('user_id'); 
-      window.location.href = `${frontend_host}/home/home.html`
+      window.location.href = `${frontend_host}/index.html`
     }
   } catch(error) {
     console.log('Unable to log out user: ', error)
