@@ -15,9 +15,13 @@ window.onscroll = function() {
       header.classList.remove("scrolled");
     }
   };
-const backend_host = 'http://localhost:5000';
+// const backend_host = 'http://localhost:5000';
+const backend_host = 'https://taskmasterbackend-x3oc.onrender.com';
 
-const frontend_host = 'http://127.0.0.1:5500';
+
+// const frontend_host = 'http://127.0.0.1:5500';
+const frontend_host = 'https://taskmastermain.netlify.app/';
+
 
 const endpoints = {
     "createAccount": `${backend_host}/auth/register`,
