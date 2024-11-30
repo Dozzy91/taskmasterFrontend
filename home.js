@@ -20,7 +20,7 @@ const backend_host = 'https://taskmasterbackend-x3oc.onrender.com';
 
 
 // const frontend_host = 'http://127.0.0.1:5500';
-const frontend_host = 'https://taskmastermain.netlify.app/';
+const frontend_host = 'https://taskmastermain.netlify.app';
 
 
 const endpoints = {
